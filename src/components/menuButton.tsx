@@ -19,13 +19,13 @@ interface Menu {
 const MenuTabs = () => {
   const [menus, setMenus] = useState<Menu[]>([]);
   const [activeTab, setActiveTab] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchMenus = async () => {
       try {
-     const response = await api.get<Menu[]>("menus");
-
+        const response = await api.get<Menu[]>("menus");
 
         if (response.data.length > 0) {
           setMenus(response.data);
@@ -34,6 +34,8 @@ const MenuTabs = () => {
         }
       } catch (error) {
         console.error("Failed to fetch menus:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -58,26 +60,31 @@ const MenuTabs = () => {
     >
       <div className="absolute inset-0 bg-black opacity-70 z-0"></div>
 
-    
       <div className="relative z-10 flex flex-wrap justify-center gap-3 md:gap-6 px-4">
-        {menus.length === 0 ? (
+        {loading ? (
+          Array.from({ length: 4 }).map((_, index) => (
+            <div
+              key={index}
+              className="w-24 md:w-32 h-10 bg-gray-700 animate-pulse rounded-md"
+            ></div>
+          ))
+        ) : menus.length === 0 ? (
           <p className="text-gray-400">No menus found.</p>
         ) : (
           menus.map((menu) => (
             <span
-            key={menu._id}
-            onClick={() => handleTabClick(menu)}
-            className={`cursor-pointer border border-blue-600 px-3 md:px-5 py-2 text-sm md:text-base
-              ${
-                activeTab === menu.name
-                  ? "bg-blue-500 text-white font-bold border-blue-600"
-                  : "bg-black text-white border-blue-600 hover:bg-blue-400 hover:text-white transition"
-              }
-            `}
-          >
-            {menu.name}
-          </span>
-          
+              key={menu._id}
+              onClick={() => handleTabClick(menu)}
+              className={`cursor-pointer border border-blue-600 px-3 md:px-5 py-2 text-sm md:text-base
+                ${
+                  activeTab === menu.name
+                    ? "bg-blue-500 text-white font-bold border-blue-600"
+                    : "bg-black text-white border-blue-600 hover:bg-blue-400 hover:text-white transition"
+                }
+              `}
+            >
+              {menu.name}
+            </span>
           ))
         )}
       </div>
