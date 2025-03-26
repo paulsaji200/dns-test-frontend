@@ -11,7 +11,7 @@ const MenuHeader = () => {
         backgroundColor: "rgba(0,0,0,0.7)",
       }}
     >
-      
+   
       <div className="absolute top-2 right-2 sm:top-4 sm:right-4">
         <Link to="/create-menu">
           <button className="bg-white text-black px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold hover:bg-gray-200 transition duration-300">
@@ -20,14 +20,19 @@ const MenuHeader = () => {
         </Link>
       </div>
 
-     
-      <h1 className="text-2xl sm:text-4xl font-bold text-white mb-2 sm:mb-4 tracking-wider">MENU</h1>
+  
+      <h1 className="text-3xl sm:text-5xl font-extrabold text-red-600 relative tracking-wider inline-block">
+        <span className="absolute -left-0.5 -top-0.5 text-white drop-shadow-lg">
+          MENU
+        </span>
+        MENU
+      </h1>
 
       
-      <p className="text-xs sm:text-base text-gray-300 max-w-2xl px-2 sm:px-4">
-        Please take a look at our menu featuring our delicious food, drinks, and brunch. If you'd like to place an
-        order, click the "Order Online" button located below the menu.
-      </p>
+      <p className="font-pixel text-[#b0b0b0] text-sm sm:text-base tracking-tight leading-snug w-full text-center">
+  Please take a look at our menu featuring food, drinks, and brunch.<br />
+  If you'd like to place an order, use the "Order Online" button located below the menu.
+</p>
     </div>
   );
 };

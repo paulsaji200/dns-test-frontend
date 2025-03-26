@@ -65,18 +65,19 @@ const MenuTabs = () => {
         ) : (
           menus.map((menu) => (
             <span
-              key={menu._id}
-              onClick={() => handleTabClick(menu)}
-              className={`cursor-pointer px-3 md:px-5 py-2 rounded-lg text-sm md:text-base
-                ${
-                  activeTab === menu.name
-                    ? "bg-blue-500 text-white font-bold"
-                    : "bg-black text-white hover:text-white hover:bg-blue-400 transition"
-                }
-              `}
-            >
-              {menu.name}
-            </span>
+            key={menu._id}
+            onClick={() => handleTabClick(menu)}
+            className={`cursor-pointer border border-blue-600 px-3 md:px-5 py-2 text-sm md:text-base
+              ${
+                activeTab === menu.name
+                  ? "bg-blue-500 text-white font-bold border-blue-600"
+                  : "bg-black text-white border-blue-600 hover:bg-blue-400 hover:text-white transition"
+              }
+            `}
+          >
+            {menu.name}
+          </span>
+          
           ))
         )}
       </div>

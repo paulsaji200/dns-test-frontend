@@ -29,27 +29,45 @@ const CenterComp = () => {
       />
 
 
-      <h2 className="text-center text-2xl md:text-3xl font-bold text-red-300 mb-6 tracking-wide">
-        <span className="border-t-2 border-gray-500 px-4">{menuName.toUpperCase()}</span>
-      </h2>
+<h2 className="relative flex items-center justify-center text-2xl md:text-3xl font-bold text-red-600 tracking-wide mb-6">
+  
+  <span className="w-16 md:w-24 h-[2px] bg-gray-500 mr-4"></span>
+
+  <span className="relative inline-block">
+    <span className="absolute -left-0.5 -top-0.5 text-white drop-shadow-lg">
+      {menuName.toUpperCase()}
+    </span>
+    {menuName.toUpperCase()}
+  </span>
+
+  <span className="w-16 md:w-24 h-[2px] bg-gray-500 ml-4"></span>
+
+</h2>
+
+
+
 
       {items.length === 0 ? (
         <p className="text-center text-gray-400">No items added yet.</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 text-lg">
-          {items.map((item: MenuItem, index: number) => (
-            <div key={index} className="mb-4">
+        {items.map((item: MenuItem, index: number) => (
+          <div key={index} className="mb-4">
+            
+            <div className="flex items-center justify-between text-base md:text-lg">
+              <span className="font-bold tracking-wide">{item.name.toUpperCase()}</span>
               
-              <div className="flex items-center justify-between text-base md:text-lg">
-                <span className="font-bold tracking-wide">{item.name.toUpperCase()}</span>
-                <div className="flex-grow border-b border-gray-500 mx-2"></div>
-                <span className="font-bold">${item.price}</span>
-              </div>
-         
-              <p className="text-gray-400 italic text-sm md:text-base">{item.description}</p>
+              {/* White Dotted Line */}
+              <div className="flex-grow border-t-2 border-dotted border-white mx-2"></div>
+              
+              <span className="font-bold">${item.price}</span>
             </div>
-          ))}
-        </div>
+      
+            <p className="text-gray-400 italic text-sm md:text-base">{item.description}</p>
+          </div>
+        ))}
+      </div>
+      
       )}
     </div>
   );

@@ -23,6 +23,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center space-x-6">
+        <span className="text-sm uppercase hover:text-blue-500 cursor-pointer">Home</span>
           <span className="text-sm uppercase hover:text-blue-500 cursor-pointer">Menu</span>
           <span className="text-sm uppercase hover:text-blue-500 cursor-pointer">Make a Reservation</span>
           <span className="text-sm uppercase hover:text-blue-500 cursor-pointer">Contact Us</span>
@@ -43,7 +44,7 @@ const Navbar = () => {
           <span className="text-sm uppercase hover:text-blue-500 cursor-pointer">Menu</span>
           <span className="text-sm uppercase hover:text-blue-500 cursor-pointer">Make a Reservation</span>
           <span className="text-sm uppercase hover:text-blue-500 cursor-pointer">Contact Us</span>
-          <div className="bg-pink-600 text-white px-3 py-1 rounded-full text-xs uppercase">Live</div>
+          
         </div>
       )}
     </nav>
