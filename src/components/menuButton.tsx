@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import axios from "axios";
+import api from "../utils/axios";
 import { setMenuData } from "../redux/menuSlice";
 
 interface MenuItem {
@@ -24,7 +24,8 @@ const MenuTabs = () => {
   useEffect(() => {
     const fetchMenus = async () => {
       try {
-        const response = await axios.get<Menu[]>("https://dns-project-server.onrender.com/api/menus");
+     const response = await api.get<Menu[]>("menus");
+
 
         if (response.data.length > 0) {
           setMenus(response.data);

@@ -22,8 +22,8 @@ const menuSlice = createSlice({
   initialState,
   reducers: {
     setMenuData: (state, action: PayloadAction<{ menuName: string; items: MenuItem[] }>) => {
-      state.menuName = action.payload.menuName; // Store menu name
-      state.items = action.payload.items; // Store items
+      state.menuName = action.payload.menuName; 
+      state.items = action.payload.items; 
     },
   },
 });

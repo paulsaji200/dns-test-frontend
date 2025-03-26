@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 
+import api from "../utils/axios";
 interface MenuItem {
   name: string;
   description: string;
@@ -30,7 +30,8 @@ const MenuManagement = () => {
 
   const fetchMenus = async () => {
     try {
-      const response = await axios.get<Menu[]>("http://localhost:5000/api/menus");
+        const response = await api.get<Menu[]>("menus");
+        ;
       
       console.log()
       setMenus(response.data);
@@ -46,10 +47,11 @@ const MenuManagement = () => {
     }
 
     try {
-      const response = await axios.post<Menu>("http://localhost:5000/api/menus", {
-        name: menuName,
-        description: menuDescription,
-      });
+        const response = await api.post<Menu>("menus", {
+            name: menuName,
+            description: menuDescription,
+          });
+          
 
       setMenus([...menus, response.data]);
       setMenuName("");
@@ -77,11 +79,11 @@ const MenuManagement = () => {
     if (!selectedMenuId) return;
 
     try {
-      const response = await axios.post<{ data: { items: MenuItem[] } }>(
-        `http://localhost:5000/api/menus/addItem?id=${selectedMenuId}`,
-        newItem
-      );
-
+        const response = await api.post<{ data: { items: MenuItem[] } }>(
+            `menus/addItem?id=${selectedMenuId}`,
+            newItem
+          );
+          
       setMenus(
         menus.map((menu) =>
           menu._id === selectedMenuId ? { ...menu, items: response.data.data.items } : menu
