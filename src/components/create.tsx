@@ -42,7 +42,7 @@ const MenuManagement = () => {
 
   const handleCreateMenu = async () => {
     if (!menuName.trim() || !menuDescription.trim()) {
-      setMessage("❌ Menu name and description are required!");
+      setMessage(" Menu name and description are required!");
       return;
     }
 
@@ -58,7 +58,7 @@ const MenuManagement = () => {
       setMenuDescription("");
       setMessage("✅ Menu created successfully!");
     } catch (error) {
-      setMessage("❌ Failed to create menu.");
+      setMessage(" Failed to create menu.");
       console.error(error);
     }
   };
@@ -94,13 +94,13 @@ const MenuManagement = () => {
       setShowModal(false);
       setMessage("✅ Item added successfully!");
     } catch (error) {
-      setMessage("❌ Failed to add item.");
+      setMessage(" Failed to add item.");
       console.error(error);
     }
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-black text-white">
+    <div className="max-w-4xl mx-auto mt-10 p-6 bg-black text-white">
       <h2 className="text-2xl font-bold mb-4">Create a New Menu</h2>
       
       {/* Success/Error Message */}
