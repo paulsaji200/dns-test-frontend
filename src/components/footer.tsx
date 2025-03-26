@@ -6,21 +6,8 @@ const Footer = () => {
     <footer className="bg-black text-white py-12 px-4">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
 
-        {/* Left Section */}
-        <div className="border border-gray-600 rounded-lg p-6 flex flex-col items-start space-y-3 text-gray-300">
-          <h4 className="text-blue-500 font-semibold text-sm mb-2 uppercase">Connect With Us</h4>
-          <div className="flex items-center space-x-3">
-            <Phone size={16} className="text-yellow-500" />
-            <span>+91 9567843340</span>
-          </div>
-          <div className="flex items-center space-x-3">
-            <Mail size={16} className="text-yellow-500" />
-            <span>info@deepnetsoft.com</span>
-          </div>
-        </div>
-
-        {/* Middle Section (Modified to match the reference) */}
-        <div className="relative border border-gray-600 rounded-lg p-6 flex flex-col items-center space-y-3 text-center">
+        {/* Middle Section (Appears First in Mobile View) */}
+        <div className="relative border border-gray-600 rounded-lg p-6 flex flex-col items-center space-y-3 text-center order-1 md:order-2">
           {/* Logo Positioned Half Inside & Half Outside */}
           <div className="absolute -top-9 flex justify-center">
             <img
@@ -46,8 +33,21 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Right Section */}
-        <div className="border border-gray-600 rounded-lg p-6 flex flex-col items-start space-y-3 text-gray-300">
+        {/* Left Section (Appears Second in Mobile View) */}
+        <div className="border border-gray-600 rounded-lg p-6 flex flex-col items-start space-y-3 text-gray-300 order-2 md:order-1">
+          <h4 className="text-blue-500 font-semibold text-sm mb-2 uppercase">Connect With Us</h4>
+          <div className="flex items-center space-x-3">
+            <Phone size={16} className="text-yellow-500" />
+            <span>+91 9567843340</span>
+          </div>
+          <div className="flex items-center space-x-3">
+            <Mail size={16} className="text-yellow-500" />
+            <span>info@deepnetsoft.com</span>
+          </div>
+        </div>
+
+        {/* Right Section (Remains Third in Mobile View) */}
+        <div className="border border-gray-600 rounded-lg p-6 flex flex-col items-start space-y-3 text-gray-300 order-3">
           <h4 className="text-blue-500 font-semibold text-sm mb-2 uppercase">Find Us</h4>
           <div className="flex items-start space-x-3">
             <MapPin size={16} className="text-yellow-500" />
